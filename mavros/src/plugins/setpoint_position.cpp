@@ -59,6 +59,7 @@ public:
 		sp_nh.param<std::string>("position/frame_id", frame_id, "local_origin");
 		sp_nh.param<std::string>("position/child_frame_id", child_frame_id, "setpoint");
 		sp_nh.param("position/tf_rate_limit", tf_rate, 50.0);
+		printf("wussup\n");
 
 		if (listen_tf) {
 			ROS_INFO_STREAM_NAMED("setpoint", "Listen to position setpoint transform " << frame_id
@@ -67,6 +68,7 @@ public:
 		}
 		else {
 			setpoint_sub = sp_nh.subscribe("local_position", 10, &SetpointPositionPlugin::setpoint_cb, this);
+			printf("else wussup\n");
 		}
 	}
 
@@ -102,6 +104,8 @@ private:
 		// ENU frame
 		tf::Vector3 origin = transform.getOrigin();
 		tf::Quaternion q = transform.getRotation();
+		
+		printf("Origin: x= %f, y=%f, z=%f\n", origin.x(), origin.y(), origin.z());
 
 		/* Documentation start from bit 1 instead 0,
 		 * Ignore velocity and accel vectors, yaw rate

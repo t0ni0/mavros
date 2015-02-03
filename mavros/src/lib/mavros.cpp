@@ -49,8 +49,8 @@ MavRos::MavRos(const ros::NodeHandle &nh_) :
 	node_handle.param<std::string>("gcs_url", gcs_url, "udp://@");
 	node_handle.param("system_id", system_id, 1);
 	node_handle.param<int>("component_id", component_id, MAV_COMP_ID_UDP_BRIDGE);
-	node_handle.param("target_system_id", tgt_system_id, 1);
-	node_handle.param("target_component_id", tgt_component_id, 1);
+	node_handle.param("target_system_id", tgt_system_id, 0);
+	node_handle.param("target_component_id", tgt_component_id, 0);
 	node_handle.param("startup_px4_usb_quirk", px4_usb_quirk, false);
 	node_handle.getParam("plugin_blacklist", plugin_blacklist);
 

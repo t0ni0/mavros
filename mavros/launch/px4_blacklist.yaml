@@ -1,2 +1,6 @@
 plugin_blacklist:
 - '3dr_radio'
+- 'waypoint'
+- 'setpoint_accel'
+- 'setpoint_attitude'
+- 'setpoint_velocity'
